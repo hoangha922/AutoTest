@@ -24,13 +24,10 @@ public class RequestDemoPageUI {
         return driver.findElement(By.xpath("//input[contains(@type,'email')]"));
     }
 
-    public WebElement findLabelFirstName() {
-        return driver.findElement(By.xpath("//label[@id='LblFirstName']"));
-    }
+    public static final String findLabelFirstName = "//label[@id='LblFirstName']";
 
-    public static final String XPATH_INPUT_FIRSTNAME = "//input[contains(@id,'First')]";
     public WebElement inputFirstName() {
-        return driver.findElement(By.xpath(XPATH_INPUT_FIRSTNAME));
+        return driver.findElement(By.xpath("//input[contains(@id,'First')]"));
     }
 
     public WebElement findLabelLastName() {
@@ -61,19 +58,13 @@ public class RequestDemoPageUI {
         return driver.findElement(By.xpath("//label[contains(@for,'Country')]"));
     }
 
-    public static final String XPATH_SELECT_COUNTRY = "//select[contains(@id,'Country')]";
-    public WebElement selectCountry() {
-        return driver.findElement(By.xpath(XPATH_SELECT_COUNTRY));
-    }
+    public static final String selectCountry = "//select[contains(@id,'Country')]";
 
     public WebElement findLabelInterest() {
         return driver.findElement(By.xpath("//label[contains(@for,'Solu')]"));
     }
 
-    public static final String XPATH_SELECT_INTEREST = "//select[contains(@id,'Solu')]";
-    public WebElement selectInterest() {
-        return driver.findElement(By.xpath(XPATH_SELECT_INTEREST));
-    }
+    public static final String selectInterest = "//select[contains(@id,'Solu')]";
 
     public WebElement findLabelComments() {
         return driver.findElement(By.xpath("//label[contains(@for,'Sale')]"));

@@ -29,26 +29,39 @@ public class TestDemo {
 
         // Sử dụng requestDemoPageUI
 
+        testDemo.requestDemoPageUI.findLabelBook().click();
+
+        testDemo.requestDemoPageUI.findLabelBusinessEmail().click();
         testDemo.requestDemoPageUI.inputBusinessEmail().sendKeys("hoangha922@gmail.com");
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement inputFirstName = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(RequestDemoPageUI.XPATH_INPUT_FIRSTNAME)));
-        inputFirstName.sendKeys("Hoàng Thái");
+        WebElement labelFirstName = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(RequestDemoPageUI.findLabelFirstName)));
+        labelFirstName.click();
 
+        testDemo.requestDemoPageUI.inputFirstName().sendKeys("Hoàng Thái");
+
+        testDemo.requestDemoPageUI.findLabelLastName().click();
         testDemo.requestDemoPageUI.inputLastName().sendKeys("Hà");
 
+        testDemo.requestDemoPageUI.findLabelCompany().click();
         testDemo.requestDemoPageUI.inputCompany().sendKeys("BFD.JSC");
 
+        testDemo.requestDemoPageUI.findLabelPhoneNumber().click();
         testDemo.requestDemoPageUI.inputPhoneNumber().sendKeys("0904590444");
 
-        WebElement countryDropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(RequestDemoPageUI.XPATH_SELECT_COUNTRY)));
+        testDemo.requestDemoPageUI.findLabelCountry().click();
+
+        WebElement countryDropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(RequestDemoPageUI.selectCountry)));
         Select selectCountry = new Select(countryDropdown);
         selectCountry.selectByVisibleText("Vietnam");
 
-        WebElement interestDropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(RequestDemoPageUI.XPATH_SELECT_INTEREST)));
+        testDemo.requestDemoPageUI.findLabelInterest().click();
+
+        WebElement interestDropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(RequestDemoPageUI.selectInterest)));
         Select selectInterest = new Select(interestDropdown);
         selectInterest.selectByVisibleText("Visual Testing");
 
+        testDemo.requestDemoPageUI.findLabelComments().click();
         testDemo.requestDemoPageUI.inputComments().sendKeys("comment comment");
 
         testDemo.requestDemoPageUI.checkbox().click();
