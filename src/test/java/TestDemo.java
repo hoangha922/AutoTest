@@ -98,8 +98,7 @@ public class TestDemo {
 //        testDemo.requestDemoPageUI.buttonLetsTalk().click();
 
 //        driver.quit();
-        driver.quit();
-        driver.quit();
+
     }
 
 }
