@@ -49,7 +49,6 @@ public class TestDemo {
 
         WebElement emailInput = driver.findElement(By.cssSelector("input[name='email']"));
         emailInput.sendKeys("hoangha922@gmail.com");
-        Thread.sleep(5000);
 
 
         // Tạo instance của TestDemo
