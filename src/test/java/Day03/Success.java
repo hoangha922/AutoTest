@@ -11,17 +11,17 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class Success {
-    private WebDriver driver;
+
+        private WebDriver driver;
 
     public Success(WebDriver driver) {
-        this.driver = driver;
-    }
+            this.driver = driver;
+        }
 
-    public static void main(String[] args) {
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.get("https://saucelabs.com/request-demo");
-
+        public static void main(String[] args) {
+            WebDriver driver = new ChromeDriver();
+            driver.manage().window().maximize();
+            driver.get("https://saucelabs.com/request-demo");
         Success success = new Success(driver);
 
         WebElement inputEmail = driver.findElement(By.id("Email"));

@@ -38,6 +38,9 @@ public class FirstNameRequired {
         inputPhoneNumber.sendKeys("0904590444");
 
         WebElement countryDropdownList = driver.findElement(By.id("Country"));
+//        countryDropdownList.click();
+//        WebElement selectCountry = driver.findElement(By.xpath("//option[@value='Albania']"));
+//        selectCountry.click();
         Select selectCountry = new Select(countryDropdownList);
         selectCountry.selectByVisibleText("Vietnam");
 

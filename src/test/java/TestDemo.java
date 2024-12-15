@@ -23,7 +23,24 @@ public class TestDemo {
     public static void main(String[] args) throws InterruptedException {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("https://saucelabs.com/request-demo");
+        driver.get("https://demo.guru99.com/test/upload/");
+
+        String filePath = "C:/Users/Sunset Glow/downloads/keymap.txt";
+
+        WebElement uploadFile = driver.findElement(By.id("uploadfile_0"));
+        uploadFile.sendKeys(filePath);
+
+        WebElement termsCheckbox = driver.findElement(By.id("terms"));
+        termsCheckbox.click();
+
+        WebElement uploadButton = driver.findElement(By.id("submitbutton"));
+        uploadButton.click();
+
+        WebElement resultMessege = driver.findElement(By.id("res"));
+        System.out.println("Kết quả tải lên: " + resultMessege.getText());
+
+
+
 //        driver.navigate().to("https://www.saucedemo.com/");
 
 //        String getURL = driver.getCurrentUrl();
@@ -41,14 +58,14 @@ public class TestDemo {
 //            System.out.println(paragraph.getText());
 //        }
 
-        List<WebElement> buttons = driver.findElements(By.cssSelector("button"));
-        System.out.println("\nButton");
-        for (WebElement button : buttons) {
-            System.out.println(button.getText());
-        }
-
-        WebElement emailInput = driver.findElement(By.cssSelector("input[name='email']"));
-        emailInput.sendKeys("hoangha922@gmail.com");
+//        List<WebElement> buttons = driver.findElements(By.cssSelector("button"));
+//        System.out.println("\nButton");
+//        for (WebElement button : buttons) {
+//            System.out.println(button.getText());
+//        }
+//
+//        WebElement emailInput = driver.findElement(By.cssSelector("input[name='email']"));
+//        emailInput.sendKeys("hoangha922@gmail.com");
 
 
         // Tạo instance của TestDemo
