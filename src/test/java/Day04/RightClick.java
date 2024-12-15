@@ -29,5 +29,7 @@ public class RightClick {
         String alertText = driver.switchTo().alert().getText();
         System.out.println("Alert text after right click: " + alertText);
 
+        driver.switchTo().alert().accept();
+
     }
 }
