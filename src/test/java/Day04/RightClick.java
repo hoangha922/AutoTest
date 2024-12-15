@@ -6,10 +6,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
-public class DoubleClick {
+public class RightClick {
     private WebDriver driver;
 
-    public DoubleClick(WebDriver driver) {
+    public RightClick(WebDriver driver) {
         this.driver = driver;
     }
 
@@ -18,18 +18,16 @@ public class DoubleClick {
         driver.manage().window().maximize();
         driver.get("https://demo.guru99.com/test/simple_context_menu.html");
 
-        WebElement button = driver.findElement(By.xpath("//button[text()='Double-Click Me To See Alert']"));
+        WebElement button = driver.findElement(By.xpath("//span[@class='context-menu-one btn btn-neutral']"));
         Actions actions = new Actions(driver);
 
-//        Thực hiện double click vào button
-        actions.doubleClick(button).perform();
+        actions.contextClick(button).perform();
 
-//      Xử lý cảnh báo xuất hiện sau double click
+        WebElement edit = driver.findElement(By.xpath("//span[text()='Edit']"));
+        edit.click();
+
         String alertText = driver.switchTo().alert().getText();
-        System.out.println("Alert text after double click: " + alertText);
-
-//       Đăng alert
-        driver.switchTo().alert().accept();
+        System.out.println("Alert text after right click: " + alertText);
 
     }
 }
