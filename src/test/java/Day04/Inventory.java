@@ -4,9 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-
-import java.time.Duration;
 
 public class Inventory {
     private WebDriver driver;
@@ -23,7 +20,7 @@ public class Inventory {
 
         login(driver);
 
-        addItemToCart(driver);
+        addItemButton(driver);
 
         checkout(driver);
 
@@ -41,7 +38,7 @@ public class Inventory {
         buttonLogin.click();
     }
 
-    public static void addItemToCart(WebDriver driver) {
+    public static void addItemButton(WebDriver driver) {
         WebElement addItemButton1 = driver.findElement(By.id("add-to-cart-sauce-labs-backpack"));
         addItemButton1.click();
 
@@ -74,8 +71,8 @@ public class Inventory {
         WebElement buttonFinish = driver.findElement(By.id("finish"));
         buttonFinish.click();
 
-        WebElement mesageComplete = driver.findElement(By.xpath("//span[@class='title']"));
-        System.out.println("Message: " + mesageComplete.getText());
+        WebElement messageComplete = driver.findElement(By.xpath("//span[@class='title']"));
+        System.out.println("Message: " + messageComplete.getText());
     }
 
 }
