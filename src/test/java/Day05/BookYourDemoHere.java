@@ -63,7 +63,7 @@ public class BookYourDemoHere {
 
                 WebElement interestDropdownList = driver.findElement(By.id("Solution_Interest__c"));
                 Select selectInterest = new Select(interestDropdownList);
-                selectInterest.selectByValue(interest);
+                selectInterest.selectByVisibleText(interest);
 
                 WebElement inputComments = driver.findElement(By.id("Sales_Contact_Comments__c"));
                 inputComments.sendKeys(comments);
