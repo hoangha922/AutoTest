@@ -39,13 +39,13 @@ public class Inventory {
     }
 
     public static void addItemButton(WebDriver driver) {
-        WebElement addItemButton1 = driver.findElement(By.id("add-to-cart-sauce-labs-backpack"));
+        WebElement addItemButton1 = driver.findElement(By.xpath("//div[contains(text(),'Sauce Labs Backpack')]/ancestor::div[@class='inventory_item_description']/descendant::button"));
         addItemButton1.click();
 
-        WebElement addItemButton2 = driver.findElement(By.id("add-to-cart-sauce-labs-bike-light"));
+        WebElement addItemButton2 = driver.findElement(By.xpath("//div[contains(text(),'Sauce Labs Bolt T-Shirt')]/ancestor::div[@class='inventory_item_description']/descendant::button"));
         addItemButton2.click();
 
-        WebElement addItemButton3 = driver.findElement(By.id("add-to-cart-sauce-labs-bolt-t-shirt"));
+        WebElement addItemButton3 = driver.findElement(By.xpath("//div[contains(text(),'Sauce Labs Bike Light')]/ancestor::div[@class='inventory_item_description']/descendant::button"));
         addItemButton3.click();
     }
 
