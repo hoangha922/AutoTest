@@ -6,25 +6,34 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import untils.ExcelUntils;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
 public class AddToCart {
+    private static WebDriver driver;
+
+    public AddToCart(WebDriver driver) {
+        this.driver = driver;
+    }
 
     public static void main(String[] args) {
-
-//        Đường dẫn file excel
-        String excelFilePath = "login.xlsx";
-        String sheetName = "Sheet2"; //Hoặc thay bằng tên sheet bất kỳ trong file
-
-//        Đọc dữ liệu từ file excel
-        List<Map<String, String>> excelData = ExcelUntils.readExcelData(excelFilePath, sheetName);
-
         // Khởi tạo WebDriver
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://www.saucedemo.com/");
+        AddToCart addToCart = new AddToCart(driver);
 
+        login();
+
+        addItemButton();
+
+        checkout();
+
+        driver.quit();
+    }
+
+    public static void login() {
         WebElement inputUsername = driver.findElement(By.id("user-name"));
         inputUsername.sendKeys("standard_user");
 
@@ -33,6 +42,15 @@ public class AddToCart {
 
         WebElement buttonLogin = driver.findElement(By.id("login-button"));
         buttonLogin.click();
+    }
+
+    public static void addItemButton() {
+//        Đường dẫn file excel
+        String excelFilePath = "login.xlsx";
+        String sheetName = "Sheet2"; //Hoặc thay bằng tên sheet bất kỳ trong file
+
+//        Đọc dữ liệu từ file excel
+        List<Map<String, String>> excelData = ExcelUntils.readExcelData(excelFilePath, sheetName);
 
         try {
 //            Duyệt qua từng bản ghi trong dữ liệu
@@ -44,33 +62,36 @@ public class AddToCart {
                 addItemButton.click();
             }
 
-        } finally {
-            WebElement shoppingCart = driver.findElement(By.className("shopping_cart_link"));
-            shoppingCart.click();
-
-            WebElement buttonCheckout = driver.findElement(By.id("checkout"));
-            buttonCheckout.click();
-
-            WebElement inputFirstName = driver.findElement(By.id("first-name"));
-            inputFirstName.sendKeys("Hoang Thai");
-
-            WebElement inputLastName = driver.findElement(By.id("last-name"));
-            inputLastName.sendKeys("Ha");
-
-            WebElement inputZip = driver.findElement(By.id("postal-code"));
-            inputZip.sendKeys("123456");
-
-            WebElement buttonContinue = driver.findElement(By.id("continue"));
-            buttonContinue.click();
-
-            WebElement buttonFinish = driver.findElement(By.id("finish"));
-            buttonFinish.click();
-
-            WebElement messageComplete = driver.findElement(By.xpath("//span[@class='title']"));
-            System.out.println("Message: " + messageComplete.getText());
-
-            driver.quit();
+        } catch (Exception e) {
 
         }
+
     }
+
+    public static void checkout() {
+        WebElement shoppingCart = driver.findElement(By.className("shopping_cart_link"));
+        shoppingCart.click();
+
+        WebElement buttonCheckout = driver.findElement(By.id("checkout"));
+        buttonCheckout.click();
+
+        WebElement inputFirstName = driver.findElement(By.id("first-name"));
+        inputFirstName.sendKeys("Hoang Thai");
+
+        WebElement inputLastName = driver.findElement(By.id("last-name"));
+        inputLastName.sendKeys("Ha");
+
+        WebElement inputZip = driver.findElement(By.id("postal-code"));
+        inputZip.sendKeys("123456");
+
+        WebElement buttonContinue = driver.findElement(By.id("continue"));
+        buttonContinue.click();
+
+        WebElement buttonFinish = driver.findElement(By.id("finish"));
+        buttonFinish.click();
+
+        WebElement messageComplete = driver.findElement(By.xpath("//span[@class='title']"));
+        System.out.println("Message: " + messageComplete.getText());
+    }
+
 }

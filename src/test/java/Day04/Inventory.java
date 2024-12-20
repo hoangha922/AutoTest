@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Inventory {
-    private WebDriver driver;
+    private static WebDriver driver;
 
     public Inventory(WebDriver driver) {
         this.driver = driver;
@@ -17,17 +17,18 @@ public class Inventory {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://www.saucedemo.com/");
+        Inventory inventory = new Inventory(driver);
 
-        login(driver);
+        login();
 
-        addItemButton(driver);
+        addItemButton();
 
-        checkout(driver);
+        checkout();
 
         driver.quit();
     }
 
-    public static void login(WebDriver driver) {
+    public static void login() {
         WebElement inputUsername = driver.findElement(By.id("user-name"));
         inputUsername.sendKeys("standard_user");
 
@@ -38,18 +39,18 @@ public class Inventory {
         buttonLogin.click();
     }
 
-    public static void addItemButton(WebDriver driver) {
-        WebElement addItemButton1 = driver.findElement(By.xpath("//div[contains(text(),'Sauce Labs Backpack')]/ancestor::div[@class='inventory_item_description']/descendant::button"));
+    public static void addItemButton() {
+        WebElement addItemButton1 = driver.findElement(By.id("add-to-cart-sauce-labs-backpack"));
         addItemButton1.click();
 
-        WebElement addItemButton2 = driver.findElement(By.xpath("//div[contains(text(),'Sauce Labs Bolt T-Shirt')]/ancestor::div[@class='inventory_item_description']/descendant::button"));
+        WebElement addItemButton2 = driver.findElement(By.id("add-to-cart-sauce-labs-bike-light"));
         addItemButton2.click();
 
-        WebElement addItemButton3 = driver.findElement(By.xpath("//div[contains(text(),'Sauce Labs Bike Light')]/ancestor::div[@class='inventory_item_description']/descendant::button"));
+        WebElement addItemButton3 = driver.findElement(By.id("add-to-cart-sauce-labs-bolt-t-shirt"));
         addItemButton3.click();
     }
 
-    public static void checkout(WebDriver driver) {
+    public static void checkout() {
         WebElement shoppingCart = driver.findElement(By.className("shopping_cart_link"));
         shoppingCart.click();
 
@@ -74,5 +75,6 @@ public class Inventory {
         WebElement messageComplete = driver.findElement(By.xpath("//span[@class='title']"));
         System.out.println("Message: " + messageComplete.getText());
     }
-
 }
+
+
