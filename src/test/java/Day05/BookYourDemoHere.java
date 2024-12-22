@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import untils.ExcelUntils;
+import utils.ExcelUtils;
 
 import java.time.Duration;
 import java.util.List;
@@ -21,7 +21,7 @@ public class BookYourDemoHere {
         String sheetName = "Sheet1"; //Hoặc thay bằng tên sheet bất kỳ trong file
 
 //        Đọc dữ liệu từ file excel
-        List<Map<String, String>> excelData = ExcelUntils.readExcelData(excelFilePath, sheetName);
+        List<Map<String, String>> excelData = ExcelUtils.readExcelData(excelFilePath, sheetName);
 
         // Khởi tạo WebDriver
         WebDriver driver = new ChromeDriver();

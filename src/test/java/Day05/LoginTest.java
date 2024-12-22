@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import untils.ExcelUntils;
+import utils.ExcelUtils;
 
 import java.util.*;
 
@@ -25,7 +25,7 @@ public class LoginTest {
         String sheetName = "Sheet1"; //Hoặc thay bằng tên sheet bất kỳ trong file
 
 //        Đọc dữ liệu từ file excel
-        List<Map<String, String>> excelData = ExcelUntils.readExcelData(excelFilePath, sheetName);
+        List<Map<String, String>> excelData = ExcelUtils.readExcelData(excelFilePath, sheetName);
 
         // Khởi tạo WebDriver
         WebDriver driver = new ChromeDriver();

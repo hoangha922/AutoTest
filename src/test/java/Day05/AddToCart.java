@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import untils.ExcelUntils;
+import utils.ExcelUtils;
 
 import java.util.List;
 import java.util.Map;
@@ -49,7 +49,7 @@ public class AddToCart {
         String sheetName = "Sheet2"; //Hoặc thay bằng tên sheet bất kỳ trong file
 
 //        Đọc dữ liệu từ file excel
-        List<Map<String, String>> excelData = ExcelUntils.readExcelData(excelFilePath, sheetName);
+        List<Map<String, String>> excelData = ExcelUtils.readExcelData(excelFilePath, sheetName);
 
         try {
 //            Duyệt qua từng bản ghi trong dữ liệu
