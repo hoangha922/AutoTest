@@ -9,14 +9,6 @@ import utils.ExcelUtils;
 import java.util.*;
 
 public class LoginTest {
-//      Method đọc file data
-
-
-//    private WebDriver driver;
-//
-//    public LoginTest(WebDriver driver) {
-//        this.driver = driver;
-//    }
 
     public static void main(String[] args) {
 
